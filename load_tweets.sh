@@ -7,10 +7,10 @@ files='
 test-data.zip
 '
 
-#echo 'load normalized'
-#for file in $files; do
-    # call the load_tweets.py file to load data into pg_normalized
-#done
+echo 'load normalized'
+for file in $files; do
+    python3 load_tweets.py --db postgresql://postgres:pass@localhost:8409 --input "$file" # call the load_tweets.py file to load data into pg_normalized
+done
 
 echo 'load denormalized'
 for file in $files; do
